@@ -1,8 +1,17 @@
 """Setup script for sysrsync."""
 import setuptools
-import toml
 
-pyproject = toml.load("pyproject.toml")
+try:
+    # Python 3.11 and later
+    import tomllib
+except ImportError:
+    # Python 3.10 and earlier
+    import toml
+
+    pyproject = toml.load("pyproject.toml")
+else:
+    with open("pyproject.toml", "rb") as fh:
+        pyproject = tomllib.load(fh)
 
 with open("README.md", "r") as fh:
     long_description = fh.read()

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "toml"]
+requires = ["setuptools", "toml; python_version < '3.11'"]
 
 [tool]
 [tool.poetry]
@@ -12,7 +12,7 @@ homepage = "https://github.com/gchamon/sysrsync"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-toml = "^0.10.0"
+toml = { version = "^0.10.0", python = "<3.11" }
 
 [tool.poetry.dev-dependencies]
 autopep8 = "*"
